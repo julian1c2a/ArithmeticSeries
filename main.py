@@ -28,6 +28,8 @@ if __name__ == "__main__":
         correct = correct and (id_SetN(index) == index)
     if correct:
         print("Correct evaluation of the identity in SetN by composition of functions.")
+    else:
+        print("Wrong evaluation of the identity in SetN by composition of functions.")
 
     correct = True
     for pr1st in range(0, 1000):
@@ -35,4 +37,6 @@ if __name__ == "__main__":
             correct = correct and (id_SetN_x_SetN(pr1st, pr2nd) == (pr1st, pr2nd))
     if correct:
         print("Correct evaluation of the identity in SetN x SetN by composition of functions.")
+    else:
+        print("Wrong evaluation of the identity in SetN x SetN by composition of functions.")
 
