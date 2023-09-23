@@ -3,8 +3,8 @@ from ArithmeticSeriesModule import max_index_from_group as max_index
 from ArithmeticSeriesModule import min_group_from_index as min_group
 from ArithmeticSeriesModule import max_group_from_index as max_group
 from ArithmeticSeriesModule import group_from_index
-from ArithmeticSeriesModule import linear_series as N2NxN_index
-from ArithmeticSeriesModule import linear_series_inv as NxN2N_tuple
+from ArithmeticSeriesModule import quadratic_series as N2NxN_index
+from ArithmeticSeriesModule import quadratic_series_inv as NxN2N_tuple
 from ArithmeticSeriesModule import identity_in_SetN as id_SetN
 from ArithmeticSeriesModule import identity_in_SetN_x_SetN as id_SetN_x_SetN
 

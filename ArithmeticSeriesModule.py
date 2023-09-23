@@ -13,29 +13,29 @@ The naive function:
     
     SetN x SetN is the set of 2-tuples of natural numbers.
     
-    linear_series is a bijective function.
+    quadratic_series is a bijective function.
     
     If group is a natural number defined as the sum of the projections of the resultant tuple:
         group = 1st + 2nd, 
     then group represents a group of tuples as images of consecutive indexes of natural numbers,
-    under the function linear_series.
+    under the function quadratic_series.
      
-    linear_series: SetN  --> SetN x SetN  # group
-                   0    |-> ( 0  ,  0 )  # 0
-                   1    |-> ( 0  ,  1 )  # 1
-                   2    |-> ( 1  ,  0 )  # 1
-                   3    |-> ( 0  ,  2 )  # 2
-                   4    |-> ( 1  ,  1 )  # 2
-                   5    |-> ( 2  ,  0 )  # 2
-                   6    |-> ( 0  ,  3 )  # 3
-                   7    |-> ( 1  ,  2 )  # 3
-                   8    |-> ( 2  ,  1 )  # 3
-                   9    |-> ( 3  ,  0 )  # 3
-                 ...    |-> ( ..., ...)  # ...
-               index    |-> (1st , 2nd)  # 1st+2nd
+    quadratic_series: SetN  --> SetN x SetN  # group
+                       0    |-> ( 0  ,  0 )  # 0
+                       1    |-> ( 0  ,  1 )  # 1
+                       2    |-> ( 1  ,  0 )  # 1
+                       3    |-> ( 0  ,  2 )  # 2
+                       4    |-> ( 1  ,  1 )  # 2
+                       5    |-> ( 2  ,  0 )  # 2
+                       6    |-> ( 0  ,  3 )  # 3
+                       7    |-> ( 1  ,  2 )  # 3
+                       8    |-> ( 2  ,  1 )  # 3
+                       9    |-> ( 3  ,  0 )  # 3
+                     ...    |-> ( ..., ...)  # ...
+                   index    |-> (1st , 2nd)  # 1st+2nd
                
-This module is used to help to determine a formula for linear_series and its 
-inverse function linear_series_inv.
+This module is used to help to determine a formula for quadratic_series and its 
+inverse function quadratic_series_inv.
 
 First, we determine the formula for the minimum (and the maximum) index 
 of a given group number.
@@ -88,43 +88,43 @@ def max_group_from_index(ind: int) -> int:
     return result
 
 
-def min_group_from_index(ind: int) -> int:
-    result: int = int(floor(ldbl(-1 + sqrt(ldbl(1 + 8 * ind))) / ldbl(2)))
+def min_group_from_index(index: int) -> int:
+    result: int = int(floor(ldbl(-1 + sqrt(ldbl(1 + 8 * index))) / ldbl(2)))
     return result
 
 
-def group_from_index(ind: int) -> int:
-    return int(round((min_group_from_index(ind) + max_group_from_index(ind)) / ldbl(2)))
+def group_from_index(index: int) -> int:
+    return int(round((min_group_from_index(index) + max_group_from_index(index)) / ldbl(2)))
 
 
-def index_in_group_interval(ind: int, group: int) -> bool:
-    return min_index_from_group(group) <= ind <= max_index_from_group(group)
+def index_in_group_interval(index: int, group: int) -> bool:
+    return min_index_from_group(group) <= index <= max_index_from_group(group)
 
 
-def linear_series(ind: int) -> tuple:
-    group: int = int(group_from_index(ind))
-    pr1st: int = ind - min_index_from_group(group)
+def quadratic_series(index: int) -> tuple:
+    group: int = int(group_from_index(index))
+    pr1st: int = index - min_index_from_group(group)
     pr2nd: int = group - pr1st
     return pr1st, pr2nd
 
 
-def linear_series_inv(pr1st: int, pr2nd: int) -> int:
+def quadratic_series_inv(pr1st: int, pr2nd: int) -> int:
     group: int = pr1st + pr2nd
     index: int = pr1st + min_index_from_group(group)
     return index
 
 
 def identity_in_SetN(index: int) -> int:
-    image_of_index: tuple[int, int] = linear_series(index)
-    return linear_series_inv(
+    image_of_index: tuple[int, int] = quadratic_series(index)
+    return quadratic_series_inv(
         image_of_index[0],
         image_of_index[1]
     )
 
 
 def identity_in_SetN_x_SetN(pr1st: int, pr2nd) -> tuple[int, int]:
-    index_image_of_tuple: int = linear_series_inv(pr1st, pr2nd)
-    return linear_series(index_image_of_tuple)
+    index_image_of_tuple: int = quadratic_series_inv(pr1st, pr2nd)
+    return quadratic_series(index_image_of_tuple)
 
 
 if __name__ == "__main__":
