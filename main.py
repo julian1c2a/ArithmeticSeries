@@ -8,6 +8,11 @@ from ArithmeticSeriesModule import quadratic_series_inv as NxN2N_tuple
 from ArithmeticSeriesModule import identity_in_SetN as id_SetN
 from ArithmeticSeriesModule import identity_in_SetN_x_SetN as id_SetN_x_SetN
 
+from numpy import longdouble as ldbl
+from numpy import ceil
+from numpy import floor
+from numpy import round
+from numpy import sqrt
 
 if __name__ == "__main__":
     for group in range(0, 10):
@@ -39,4 +44,8 @@ if __name__ == "__main__":
         print("Correct evaluation of the identity in SetN x SetN by composition of functions.")
     else:
         print("Wrong evaluation of the identity in SetN x SetN by composition of functions.")
-
+    # a : ldbl = 64
+    # b : ldbl = 80
+    # c : ldbl = 5
+    # i : ldbl = (-b+sqrt(b**2-4*a*c))/(2*a)
+    # print(f"{a}*i^2+{b}*i+{c}==0 =>  i=={i}")
