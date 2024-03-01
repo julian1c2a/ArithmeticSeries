@@ -228,7 +228,7 @@ def identity_in_SetN(index: int) -> int:
     return quadratic_series_inv(image_of_index[0], image_of_index[1])
 
 
-def identity_in_SetN_x_SetN(pr1st: int, pr2nd) -> tuple[int, int]:
+def identity_in_SetN_x_SetN(pr1st: int, pr2nd: int) -> tuple[int, int]:
     """
     SetN is a name for the set of natural numbers, including the zero number.
     SetN x SetN is the set of 2-tuples of natural numbers.
