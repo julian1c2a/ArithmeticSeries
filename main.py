@@ -1,3 +1,4 @@
+# pylint: disable=no-name-in-module
 """
 This module performs various arithmetic series operations and evaluations.
 """

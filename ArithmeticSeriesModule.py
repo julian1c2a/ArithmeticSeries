@@ -55,7 +55,6 @@ we determine the tuple corresponding to the index:
 from numpy import longdouble as ldbl
 from numpy import ceil
 from numpy import floor
-from numpy import round
 from numpy import sqrt
 
 
@@ -211,7 +210,7 @@ def quadratic_series_inv(pr1st: int, pr2nd: int) -> int:
     return index
 
 
-def identity_in_SetN(index: int) -> int:
+def identity_in_set_n(index: int) -> int:
     """
     SetN is a name for the set of natural numbers, including the zero number.
     SetN x SetN is the set of 2-tuples of natural numbers.
